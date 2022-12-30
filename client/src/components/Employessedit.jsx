@@ -1,14 +1,31 @@
-import React from "react";
-import { useState } from "react";
-import styles from "./data.module.css";
+import React, { useState } from "react";
 import axios from "axios";
+import styles from "./data.module.css";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function Input() {
-  const [name, setname] = useState("");
+function Employessedit() {
+  const {id} = useParams();
+  console.log("id",id);
+  const [Data,setdata]=useState({})
+  console.log("Data",Data);
+  const [name, setname] = useState(Data[0].name);
   const [age, setage] = useState(0);
   const [country, setcountry] = useState("");
   const [position, setposition] = useState("");
   const [wage, setwage] = useState(0);
+
+  useEffect(()=>{
+    axios
+    .get(`http://localhost:3500/employeesget/${id}`)
+    .then(({ data }) => {
+      console.log(data);
+    //   let filter = data.filter((elem)=>elem.id==id)
+    //   console.log(filter);
+      setdata(data);
+    })
+    .catch((err) => console.log(err));
+  },[])
 
   const handleclick = () => {
     let newobj = {
@@ -73,4 +90,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default Employessedit;

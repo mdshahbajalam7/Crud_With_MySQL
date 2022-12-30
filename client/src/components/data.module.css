@@ -1,43 +1,80 @@
-.container{
-    width: 60%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid;
-    margin-top: 30px;
-    box-shadow: rgba(205, 251, 3, 0.35) 0px 5px 15px;
-    padding: 20px;
-}
-.container input{
-    margin: auto;
-    width: 60%;
-    margin-top: 10px;
-    height: 40px;
+*{
     font-size: 20px;
     font-weight: 500;
-    padding: 10px;
 }
-.container  label{
-    margin: auto;
-    width: 60%;
-    margin-top:10px ;
+.container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin-top: 30px;
+  box-shadow: rgba(205, 251, 3, 0.35) 0px 5px 15px;
+  padding: 20px;
 }
-.container button{
-    margin: auto;
-    width: 65%;
-    margin-top: 10px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 10px;
-    margin-top: 30px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
+.container input {
+  margin: auto;
+  width: 60%;
+  margin-top: 10px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
 }
-.container button:hover{
-    cursor: pointer;
-    background-color: green;
-    color: white;
-    transition: 1s;
+.container label {
+  margin: auto;
+  width: 60%;
+  margin-top: 10px;
+}
+.container button {
+  margin: auto;
+  width: 65%;
+  margin-top: 10px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+.container button:hover {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  transition: 1s;
+}
+.tablediv {
+  border-collapse: collapse;
+  border: 1px solid;
+  margin: auto;
+  margin-top: 20px;
+  /* padding: 20px; */
+  width: 60%;
+  text-align: center;
+}
+.thead .tr .th {
+  border: 1px solid;
+  background-color: teal;
+  color: white;
+  height: 40px;
+  border-radius: 5px;
+}
+.td {
+  border: 1px solid;
+}
+.btn1 {
+  width: 80%;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+}
+.btn1:hover {
+  background-color: green;
+  cursor: pointer;
+  transition: 0.5s;
 }
