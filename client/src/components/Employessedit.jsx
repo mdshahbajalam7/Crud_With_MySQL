@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import { BASEURL } from "../App";
 
 function Employessedit() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Employessedit() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3500/employeesget/${id}`)
+      .get(`${BASEURL}/employeesget/${id}`)
       .then(({ data }) => {
         let getData = data[0];
         setname(getData.name);
@@ -40,7 +41,7 @@ function Employessedit() {
     };
     console.log(newobj);
     axios
-      .put(`http://localhost:3500/employeesupdate/${id}`, newobj)
+      .put(`${BASEURL}/employeesupdate/${id}`, newobj)
       .then(({ data }) => {
         console.log(data);
         navigate("/employee");

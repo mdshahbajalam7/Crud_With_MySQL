@@ -5,8 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
-import { width } from "@mui/system";
+import { BASEURL } from "../App";
 
 function Input() {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ function Input() {
     };
     console.log(newobj);
     axios
-      .post(`http://localhost:3500/create`, newobj)
+      .post(`${BASEURL}/create`, newobj)
       .then(({ data }) => {
         console.log(data);
         navigate("/employee");

@@ -4,12 +4,13 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "./data.module.css";
 import { useNavigate } from "react-router-dom";
+import { BASEURL } from "../App";
 function Employee() {
   const [getdata, setGetdata] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:3500/employees`)
+      .get(`${BASEURL}/employees`)
       .then(({ data }) => {
         console.log(data);
         setGetdata(data);
@@ -20,7 +21,7 @@ function Employee() {
   const deletebutton = (id) => {
     console.log(id);
     axios
-      .delete(`http://localhost:3500/employeesdelete/${id}`)
+      .delete(`${BASEURL}/employeesdelete/${id}`)
       .then(({ data }) => {
         console.log(data);
         setGetdata(
