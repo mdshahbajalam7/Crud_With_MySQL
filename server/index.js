@@ -9,9 +9,8 @@ app.use(express.json());
 const database = mysql.createConnection({
   user: "root",
   host: "localhost",
-  password: "root700",
+  password: "root1234",
   database: "employee",
-  // insecureAuth : true,
   fatal: true,
 });
 
@@ -54,17 +53,20 @@ app.get("/employees", (req, res) => {
   });
 });
 
-app.get("/employeesget/:id",(req,res)=>{
-  const id = req.params.id
-  database.query("SELECT * from employees_table WHERE id= ?",id,(err,result)=>{
-    if(err){
-      console.log(err);
+app.get("/employeesget/:id", (req, res) => {
+  const id = req.params.id;
+  database.query(
+    "SELECT * from employees_table WHERE id= ?",
+    id,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
     }
-    else{
-      res.send(result)
-    }
-  })
-})
+  );
+});
 
 app.put("/employeesupdate/:id", (req, res) => {
   const id = req.params.id;
@@ -73,6 +75,7 @@ app.put("/employeesupdate/:id", (req, res) => {
   const country = req.body.country;
   const position = req.body.position;
   const wage = req.body.wage;
+
   database.query(
     "UPDATE employees_table SET name=?,age=?,country=?,position=?,wage=? WHERE id= ? ",
     [name, age, country, position, wage, id],

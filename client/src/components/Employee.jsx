@@ -31,12 +31,17 @@ function Employee() {
       })
       .catch((err) => console.log(err));
   };
-  const editclick=(id)=>{
-    navigate(`/employesedit/${id}`)
-  }
+  const editclick = (id) => {
+    navigate(`/employesedit/${id}`);
+  };
 
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>
+        {" "}
+        <span style={{ color: "Teal" }}>A</span>ll{" "}
+        <span style={{ color: "Red" }}>E</span>mployee <span style={{color:"green"}}>D</span>ata{" "}
+      </h1>
       <table className={styles.tablediv}>
         <thead className={styles.thead}>
           <tr className={styles.tr}>

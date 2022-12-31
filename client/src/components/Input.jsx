@@ -2,13 +2,19 @@ import React from "react";
 import { useState } from "react";
 import styles from "./data.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
+import { width } from "@mui/system";
 
 function Input() {
+  const navigate = useNavigate();
   const [name, setname] = useState("");
-  const [age, setage] = useState(0);
+  const [age, setage] = useState(null);
   const [country, setcountry] = useState("");
   const [position, setposition] = useState("");
-  const [wage, setwage] = useState(0);
+  const [wage, setwage] = useState(null);
 
   const handleclick = () => {
     let newobj = {
@@ -23,52 +29,73 @@ function Input() {
       .post(`http://localhost:3500/create`, newobj)
       .then(({ data }) => {
         console.log(data);
+        navigate("/employee");
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className={styles.container}>
-      <label>Name: </label>
-      <input
-        type="text"
-        placeholder="Name"
-        name="name"
+      <h1 style={{ textAlign: "center" }}>
+        {" "}
+        <span style={{ color: "orange" }}>E</span>mployee <span>D</span>ata{" "}
+        <span style={{ color: "greenyellow" }}>A</span>dding
+      </h1>
+      <TextField
+        required
+        style={{ width: "60%", margin: "auto" }}
+        id="outlined-basic"
+        label="Name"
+        variant="outlined"
         value={name}
         onChange={(e) => setname(e.target.value)}
       />
-      <label>Age: </label>
-      <input
-        type="Number"
-        placeholder="Age"
-        name="age"
+      <TextField
+        type="number"
+        required
+        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
+        id="outlined-basic"
+        label="Age"
+        variant="outlined"
         value={age}
         onChange={(e) => setage(e.target.value)}
       />
-      <label>Country: </label>
-      <input
-        type="text"
-        placeholder="Country"
-        name="country"
+      <TextField
+        required
+        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
+        id="outlined-basic"
+        label="Country"
+        variant="outlined"
         value={country}
         onChange={(e) => setcountry(e.target.value)}
       />
-      <label>Position: </label>
-      <input
-        type="text"
-        placeholder="Position"
-        name="position"
+      <TextField
+        required
+        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
+        id="outlined-basic"
+        label="Position"
+        variant="outlined"
         value={position}
         onChange={(e) => setposition(e.target.value)}
       />
-      <label>wage (Years): </label>
-      <input
-        type="Number"
-        placeholder="wage"
-        name="wage"
+      <TextField
+        required
+        type="number"
+        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
+        id="outlined-basic"
+        label="Wage(salary (Y))"
+        variant="outlined"
         value={wage}
         onChange={(e) => setwage(e.target.value)}
       />
-      <button onClick={handleclick}>Add Employes</button>
+      <Button
+        required
+        style={{ width: "60%", margin: "auto", marginTop: "30px" }}
+        onClick={handleclick}
+        variant="contained"
+        disableElevation
+      >
+        Add Employee
+      </Button>
     </div>
   );
 }

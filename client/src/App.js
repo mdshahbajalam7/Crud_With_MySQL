@@ -3,10 +3,12 @@ import "./App.css";
 import Employee from "./components/Employee";
 import Employessedit from "./components/Employessedit";
 import Input from "./components/Input";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Input />}/>
         <Route path="/employee" element={<Employee/>}/>
