@@ -22,6 +22,10 @@ database.connect(function (err) {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("This is my first mysql crup operation");
+});
+
 app.post("/create", (req, res) => {
   const name = req.body.name;
   const age = req.body.age;
